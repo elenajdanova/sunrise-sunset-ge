@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Sunrise Sunset App
+
+## Goal
+SPA using React that will allow a user to find out and display the time of sunrise and sunset of five different locations. There are several free APIs that can retrieve this info for you, feel free to use the one of your choice. The flow should be as follows:
+
+- Users are presented with a screen that allows them to enter longitude and latitude for a location, one at a time. When a user hits next, they are able to enter another location, five total.
+
+- Upon filling in the last set of location info, the user should be able to see a screen with all locations, plus the corresponding sunrise and sunset. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
