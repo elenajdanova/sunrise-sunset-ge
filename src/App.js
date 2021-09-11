@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import './App.css';
-import getSunriseSunsetTimes from './getSunriseSunsetTimes.js';
+import "./App.css";
+import getSunriseSunsetTimes from "./getSunriseSunsetTimes.js";
 import Form from "./components/Form.jsx";
+import Output from "./components/Output.jsx";
+
+const MAX_LOCATIONS = 5;
 
 const App = () => {
   const [state, setState] = useState({
+    showResults: false,
     locations: [],
     inputs: {
       latitude: "",
@@ -34,14 +38,26 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    if (state.locations.length === MAX_LOCATIONS && !state.showResults) {
+      setState({ ...state, showResults: true });
+    }
+  }, [state]);
+
+  const { locations, showResults } = state;
+
   return (
     <div className="app">
       <header className="header">
         Get your sunrise coffee and sunset view wherever you are!
       </header>
-      <Form handleSubmit={handleSubmit} setState={setState} state={state}/>
+      {showResults ? (
+        <Output locations={locations} />
+      ) : (
+        <Form handleSubmit={handleSubmit} setState={setState} state={state} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
