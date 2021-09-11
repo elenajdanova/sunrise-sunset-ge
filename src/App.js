@@ -5,20 +5,33 @@ import getSunriseSunsetTimes from './getSunriseSunsetTimes.js';
 import Form from "./components/Form.jsx";
 
 const App = () => {
-  const [coordinates, setCoordinates] = useState([])
+  const [state, setState] = useState({
+    locations: [],
+    inputs: {
+      latitude: "",
+      longitude: "",
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { target } = e;
-    const latitude = { [target[1].name]: target[1].value };
-    const longitude = { [target[0].name]: target[0].value };
+    const latitude = { [target[1].name]: target[1].value.trim() };
+    const longitude = { [target[0].name]: target[0].value.trim() };
 
     const times = await getSunriseSunsetTimes({ ...latitude, ...longitude });
     updateState({ ...latitude, ...longitude, ...times });
   };
 
-  const updateState = (newCoordinates) => {
-    setCoordinates([...coordinates, newCoordinates]);
+  const updateState = (locationData) => {
+    setState({
+      ...state,
+      locations: [...state.locations, locationData],
+      inputs: {
+        latitude: "",
+        longitude: "",
+      },
+    });
   };
 
   return (
@@ -26,7 +39,7 @@ const App = () => {
       <header className="header">
         Get your sunrise coffee and sunset view wherever you are!
       </header>
-      <Form handleSubmit={handleSubmit}/>
+      <Form handleSubmit={handleSubmit} setState={setState} state={state}/>
     </div>
   );
 }

@@ -1,6 +1,17 @@
 import "./Form.css";
 
-const Form = ({ handleSubmit }) => {
+const Form = ({ handleSubmit, setState, state }) => {
+  const { inputs } = state;
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    setState({
+      ...state,
+      inputs: { ...state.inputs, [name]: value.trim() },
+    });
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="description">
@@ -15,9 +26,13 @@ const Form = ({ handleSubmit }) => {
           autoComplete="off"
           className="fieldInput"
           name="latitude"
+          onChange={handleInput}
+          pattern="-?(\d{1,3})\.?\d*"
           placeholder="Latitude"
           required="required"
+          title="Latitude must be a number in decimal degrees format."
           type="text"
+          value={inputs.latitude}
         />
         <label className="fieldLabel">Latitude</label>
       </div>
@@ -26,13 +41,17 @@ const Form = ({ handleSubmit }) => {
           autoComplete="off"
           className="fieldInput"
           name="longitude"
+          onChange={handleInput}
+          pattern="-?(\d{1,3})\.?\d*"
           placeholder="Longitude"
           required="required"
+          title="Latitude must be a number in decimal degrees format."
           type="text"
+          value={inputs.longitude}
         />
         <label className="fieldLabel">Longitude</label>
       </div>
-      <button type="submit" className="primary">
+      <button type="submit">
         Add location
       </button>
       <p className="description note">
