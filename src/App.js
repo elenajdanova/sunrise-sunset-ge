@@ -1,18 +1,20 @@
 import { useState } from "react";
 
 import './App.css';
+import getSunriseSunsetTimes from './getSunriseSunsetTimes.js';
 import Form from "./components/Form.jsx";
 
 const App = () => {
   const [coordinates, setCoordinates] = useState([])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { target } = e;
     const latitude = { [target[1].name]: target[1].value };
     const longitude = { [target[0].name]: target[0].value };
 
-    updateState({ ...latitude, ...longitude });
+    const times = await getSunriseSunsetTimes({ ...latitude, ...longitude });
+    updateState({ ...latitude, ...longitude, ...times });
   };
 
   const updateState = (newCoordinates) => {
