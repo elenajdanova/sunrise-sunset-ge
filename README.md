@@ -7,9 +7,32 @@ SPA using React that will allow a user to find out and display the time of sunri
 
 - Upon filling in the last set of location info, the user should be able to see a screen with all locations, plus the corresponding sunrise and sunset. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+Before starting coding I took some time to:
+- Understand requirements
+- Find free API that satisfies the requirements - https://sunrise-sunset.org/api
+- Refresh my knowledge about longitude and latitude :)
+- Create low level mockup, create color palette and find icons
+
+While coding:
+- Started with CRA
+- Created initial form
+- Called API using built-in fetch and validated it's response
+- Validated user input using HTML5 validation
+- Put together quick animation to make it look like different 5 forms for the user
+- Created Output component which represents locations and sunrise \ sunset
+- Coding time took 3h 10ish mins (not including time to update this README)
+
+What I would additionally do if there's no time restrictions:
+- Use `proptypes` in every component;
+- Use error properties that I have in Output component to alert the user if something goes wrong.
+- Cover components with tests
+- Improve Form tab flow
+- Allow users to skip to the final screen after filling any arbitrary number of locations (if it doesn't contradict any business requirements for the app)
+- Introduce geocoding, so coordinates can be converted to city names and become more user friendly.
+
+## How to use the app
 
 In the project directory, you can run:
 
@@ -75,3 +98,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Attributions
+
+Icons used here are made by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)
