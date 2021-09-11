@@ -1,0 +1,91 @@
+.description {
+  max-width: 50vw;
+  text-align: center;
+  color: #6e778f;
+}
+
+.description p {
+  margin: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.field {
+  display: block;
+  width: 75vw;
+  max-width: 500px;
+  position: relative;
+  margin-top: 24px;
+}
+
+.fieldLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  transform-origin: 0 0;
+  transform: translate3d(12px, 12px, 0);
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  transition: transform .2s;
+  color: #6e778f;
+}
+
+.fieldInput {
+  appearance: none;
+  width: 100%;
+  padding: 12px;
+  border: solid 1px #828dab;
+  outline: none;  
+  font-size: 16px;
+  line-height: 20px;
+  color: #6e778f;
+}
+
+.fieldInput::placeholder {
+  color: transparent;
+  user-select: none;
+}
+
+.fieldInput:focus + .fieldLabel,
+.fieldInput:not(:placeholder-shown) + .fieldLabel {
+  transform: translate3d(0, -100%, 0) scale(0.875);
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 16px 32px;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #f47d31;
+  transition: background 250ms ease-in-out, 
+  transform 150ms ease;
+  color: #fdf5eb;
+}
+
+button:hover,
+button:focus {
+  background: #f06e1d;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+.note {
+  font-size: 14px;
+}
