@@ -1,0 +1,12 @@
+.app {
+  margin: 30px;
+  font-family: 'Roboto', 'sans-serif';
+}
+
+.header {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  color: #6e778f;
+}
