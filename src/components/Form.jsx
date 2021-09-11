@@ -4,7 +4,7 @@ import "./Form.css";
 
 const Form = ({ handleSubmit, setState, state }) => {
   const [animate, setAnimate] = useState(false);
-  const { inputs } = state;
+  const { locations, inputs } = state;
 
   const values = Object.values(inputs);
   const inputIsMissing = values.some((value) => value === "");
@@ -35,6 +35,7 @@ const Form = ({ handleSubmit, setState, state }) => {
             Enter coordinates for 5 desired locations to get sunrise and sunset
             times for them.
           </p>
+          <p>({locations.length + 1} of 5)</p>
         </div>
         <div className="field">
           <input
