@@ -36,6 +36,10 @@ What I would additionally do if there's no time restrictions:
 
 In the project directory, you can run:
 
+### `yarn install`
+
+Installs all dependencies for the project. Normally is used only before the first run of the project.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
